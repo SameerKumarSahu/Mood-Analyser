@@ -1,24 +1,22 @@
 package org.example;
 
-import org.example.MoodAnalyser;
 import org.junit.Assert;
 import org.junit.Test;
 
 public class MoodAnalyserTesting {
-    // Creating an object
-    MoodAnalyser checkMood = new MoodAnalyser();
 
     @Test
-    // If message contain SAD then should return SAD
-    public void checkIfMessageContainSadShouldReturnSAD() {
-        String mood = checkMood.moodAnalyse("I am in Sad Mood");
+    public void givenSadMessage_WhenAnalysed_MessageShouldReturnSad() {
+        MoodAnalyser checkMood = new MoodAnalyser("I am in Sad Mood");
+        String mood = checkMood.analyseMood();
         Assert.assertEquals("SAD", mood);
     }
 
     @Test
-    //If message didn't contain SAD then should return HAPPY
-    public void checkIfMessageDoesNotContainsSadShouldReturnHAPPY() {
-        String mood = checkMood.moodAnalyse("I am in Any Mood");
+    public void givenAnyMoodMessage_WhenAnalysed_MessageShouldReturnHappy() {
+        MoodAnalyser checkMood = new MoodAnalyser("I am in Any Mood");
+        String mood = checkMood.analyseMood();
         Assert.assertEquals("HAPPY", mood);
     }
-}
+
+ }
