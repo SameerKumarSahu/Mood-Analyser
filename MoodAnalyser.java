@@ -11,14 +11,19 @@ public class MoodAnalyser {
     //Default Constructor
     MoodAnalyser() {
     }
-
     public String analyseMood() {
-        if (message.contains("Sad")) {
-            System.out.println("SAD");
-            return "SAD";
-        } else {
+        try {
+            if (message.contains("Sad")) {
+                System.out.println("SAD");
+                return "SAD";
+            } else {
+                System.out.println("HAPPY");
+                return "HAPPY";
+            }
+        } catch (NullPointerException e) {
+            System.out.println(e);
             System.out.println("HAPPY");
+            return "HAPPY";
         }
-        return "HAPPY";
     }
 }
